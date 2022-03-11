@@ -33,7 +33,7 @@ var taskFormHandler = function(event) {
     var taskDataObj = {
       name: taskNameInput,
       type: taskTypeInput,
-      staus: "to do"
+      status: "to do"
     };
 
     createTaskEl(taskDataObj);
@@ -51,6 +51,11 @@ var createTaskEl = function(taskDataObj) {
   listItemEl.appendChild(taskInfoEl);
 
   taskDataObj.id = taskIdCounter;
+
+  tasks.push(taskDataObj);
+
+  console.log(taskDataObj);
+  console.log(taskDataObj.status);
 
   tasks.push(taskDataObj);
 
@@ -160,6 +165,14 @@ var taskStatusChangeHandler = function(event) {
   } else if (statusValue === "completed") {
     tasksCompletedEl.appendChild(taskSelected);
   }
+
+  for (var i = 0; i < tasks.length; i++) {
+    if (tasks[i].id === parseInt(taskId)) {
+      tasks[i].status = statusValue;
+    }
+  }
+  console.log(tasks);
+
 };
 
 var editTask = function(taskId) {
