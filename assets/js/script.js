@@ -53,6 +53,10 @@ var createTaskEl = function(taskDataObj) {
 
   taskDataObj.id = taskIdCounter;
 
+  
+
+  tasks.push(taskDataObj);
+
   console.log(taskDataObj);
   console.log(taskDataObj.status);
 
